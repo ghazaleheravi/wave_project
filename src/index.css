@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  padding: 50px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.nav_ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: flex-start;
+  gap: 350px;
+  font-weight: 600;
+  padding-top: 30px;
+}
+
+.customer_ul {
+  display: flex;
+  list-style: none;
+  gap: 250px;
+}
+
+.form {
+  border: 1px solid aliceblue;
+  padding: 60px;
+  margin: 40px;
+  display: flex;
+  flex-direction:column;
+  gap: 5px;
+  background-color: aliceblue;
+  
+}
+
+.form input {
+  padding: 5px;
+}
+
+.form label {
+  font-weight: 500;
+}
+
+.cancel_btn {
+  margin: 15px 0 5px 0;
+  padding:5px;
+}
+
+.save_btn {
+  padding: 5px;
+}
+
+.country_menu {
+  padding: 5px;
+  margin: 10px  5px auto auto; 
+  width: 30%;
+}
+
+.province_menu {
+  padding: 5px;
+}
