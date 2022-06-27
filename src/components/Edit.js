@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import Countries from "./Countries";
 
 function Edit(props) {
-
+  
   const initalValues = {
     name:'',
     email:'',
     channel:'',
     address:'',
     postal:'',
+    country:'',
+    province:'',
   };
 
   const [values, setValues] = useState(initalValues);
@@ -28,7 +30,9 @@ function Edit(props) {
       email:values.email,
       channel:values.channel,
       address:values.address,
-      postal:values.postal
+      postal:values.postal,
+      country:values.country,
+      province:values.province
     });
   }
 
@@ -56,15 +60,20 @@ function Edit(props) {
         onChange={handleChange}>
       </input>
 
-      <label htmlFor={props.data.id} className="ChannelLabel">Channel</label>
-      <input 
+      <select 
         id={props.data.id} 
-        className="channelLabel"
-        value={values.channel} 
-        required
+        value={values.channel}
         name="channel"
-        onChange={handleChange}>
-      </input>
+        onChange={handleChange} 
+        className="ChannelLabel" 
+        required>
+        <option value="">Channel</option>
+        <option value={values.website} name="website">website</option>
+        <option value={values.email} name="email">email</option>
+        <option value={values.phone} name="phone">phone</option>
+        <option value={values.word} name="word">word-of-mouth</option>
+        <option value={values.other} name="other">other</option>
+      </select>
 
       <label htmlFor={props.data.id} className="addressLabel">Address</label>
       <input 
@@ -86,7 +95,7 @@ function Edit(props) {
         onChange={handleChange}>
       </input>
 
-      <Countries />
+      <Countries setValues={setValues} values={values} />
 
       <button 
         type="button"
