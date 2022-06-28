@@ -9,11 +9,11 @@ function Edit(props) {
   const initalValues = {
     name: props.data.name,
     email:props.data.email,
-    channel:'',
-    address:'',
-    postal:'',
-    country:'',
-    province:'',
+    channel:props.data.channel,
+    address:props.data.address,
+    postal:props.data.postal,
+    country:props.data.country,
+    province:props.data.provinces,
   };
   const [values, setValues] = useState(initalValues);
   
@@ -47,16 +47,6 @@ function Edit(props) {
       country:values.country,
       province:values.province,
     });
-    setValues({
-      name:'',
-      email:'',
-      channel:'',
-      address:'',
-      postal:'',
-      country:'',
-      province:'',
-    });
-
     alert('New Information Saved!')
   }
 
