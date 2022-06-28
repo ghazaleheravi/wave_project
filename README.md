@@ -31,6 +31,6 @@ will create an optimized build of your app in the build folder.
 
 ## What Makes It Different
 
-I wanted to find a way that would enable the app to scale as needed based on business objectives and expansion. One solution is to adjust the code everytime that the service expands to a new country but that requires manual work and some labor on code. With my approach no adjustments to the code is needed, you only need to add a **new name of country** and **provinces** to the list/JS module. I'm particularly proud of this because while the former solution requires a minor adjustment to the code, my approach eliminates that entirely and makes the app more scalable.  
+I wanted to find a way that would enable the app to *scale* as needed based on business objectives and expansion. One solution is to adjust the code everytime that the service expands to a new country but that requires manual work and some labor on code. With my approach no adjustments to the code is needed, you only need to add a *new name of country* and *provinces* to the *list/JS module*. I'm particularly proud of this because while the former solution requires a minor adjustment to the code, my approach eliminates that entirely and makes the app more scalable.  
 
 
