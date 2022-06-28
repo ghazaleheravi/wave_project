@@ -1,21 +1,43 @@
 import React, { useState } from "react";
-import Countries from "./Countries";
+//import Countries from "./Countries";
+import { getCountry } from '../middlewares/getCountries';
 
 function Edit(props) {
   
+  const [isSelceted, setIsSelected] = useState(false);
+  const [country, setCountry] = useState('');
+  const [province, setProvince] = useState([]);
+  
   const initalValues = {
-    name:'',
-    email:'',
+    name: props.data.name,
+    email:props.data.email,
     channel:'',
     address:'',
     postal:'',
     country:'',
     province:'',
   };
-
   const [values, setValues] = useState(initalValues);
+  
+  const data = getCountry();
+
+  const countries = data.map(item => item.country)
+
+  console.log(data);
+  let provinces = []
+  data.forEach(item => {
+    if (country && item.country === country) {
+      provinces.push(item.provinces)
+    }
+  }) 
+  console.log(provinces)
+ 
 
   function handleChange(e) {
+    setIsSelected(true);
+    setCountry(e.target.value);
+    
+
     const {name, value} = e.target;
     setValues({
       ...values,
@@ -32,7 +54,7 @@ function Edit(props) {
       address:values.address,
       postal:values.postal,
       country:values.country,
-      province:values.province
+      province:values.province,
     });
   }
 
@@ -95,7 +117,28 @@ function Edit(props) {
         onChange={handleChange}>
       </input>
 
-      <Countries setValues={setValues} values={values} />
+       <select 
+        id="country" 
+        value={values.country}
+        name="country"
+        onChange={handleChange} 
+        className="country_menu" 
+        required>
+        <option value="">Country</option>
+        {countries.map(item => (<option value={values.item} name={item} key={item}>{item}</option>))}
+      </select>
+      
+      <select 
+        id="province"
+        value={values.province}
+        name="province"
+        onChange={handleChange}
+        className="province_menu"
+        disabled={!isSelceted}
+        >
+        <option value="">Province, State,...</option> 
+        {provinces.map((prov, idx) => (<option value={values.prov} name={prov} key={idx}>{prov}</option>))}
+      </select>  
 
       <button 
         type="button"
@@ -114,3 +157,11 @@ function Edit(props) {
 }
 
 export default Edit;
+
+/* const provinces = data.map(item => {
+  if (country && item.country === country) {
+    return item.provinces.map((prov) => prov)
+  }
+
+   {provinces.map((item, idx) => (<option value={values.item} name={item} key={idx}>{item}</option>))}
+})*/
