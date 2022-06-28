@@ -21,7 +21,6 @@ function App() {
       })
   }, [])
 
- 
   return (
     <div className='App'>
       <h1>Customers</h1>
@@ -30,12 +29,12 @@ function App() {
       {!isLoaded ? 'Getting Data from ...' 
         : error ? `Something went wrong. Error: ${error.message}` 
         : data.map(customer => 
-            <Customers 
-              key={customer.id} 
-              id={customer.id}
-              {...customer} 
-            />
-          )
+          <Customers 
+            key={customer.id} 
+            id={customer.id}
+            {...customer} 
+          />
+        )
       }
     </div>
   );

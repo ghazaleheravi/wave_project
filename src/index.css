@@ -17,52 +17,135 @@ code {
   display: flex;
   flex-direction: row;
   list-style: none;
-  justify-content: flex-start;
-  gap: 350px;
-  font-weight: 600;
+  gap:50px;
+  font-weight: 700;
   padding-top: 30px;
+}
+
+.nav_ul li {
+  width: 300px;
+}
+
+.breaker {
+  height:2px;
+  background-color:aliceblue;
 }
 
 .customer_ul {
   display: flex;
+  align-content: space-between;
   list-style: none;
-  gap: 250px;
+  gap: 50px;
+  position: relative;
+}
+
+.customer_ul li {
+  width: 300px;
+}
+
+.edit_btn {
+  position: absolute;
+  right:50px;
+  top:-10px;
+  width: 43px;
+  height:43px;
+  border: none;
+  border-radius: 50%;
+  background-color:aliceblue;
+  font-weight: 550;
+}
+
+.edit_btn:hover {
+  cursor: pointer;
 }
 
 .form {
-  border: 1px solid aliceblue;
-  padding: 60px;
-  margin: 40px;
   display: flex;
   flex-direction:column;
+  justify-content: center;
+  margin: auto;
+  width: 700px;
+  border: 1px solid aliceblue;
+  border-radius: 10px;
+  padding: 50px;
   gap: 5px;
   background-color: aliceblue;
-  
 }
 
 .form input {
-  padding: 5px;
+  padding: 8px;
+  border: 1px lightgray solid;
+  border-radius: 5px;
 }
 
 .form label {
   font-weight: 500;
 }
 
-.cancel_btn {
-  margin: 15px 0 5px 0;
-  padding:5px;
+.ChannelLabel {
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  border: 1px lightgray solid;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.save_btn {
-  padding: 5px;
+.country_province_box {
+  margin-top: 10px;
 }
 
 .country_menu {
-  padding: 5px;
-  margin: 10px  5px auto auto; 
-  width: 30%;
+  display: inline;
+  margin-right: 15px;
+  padding: 8px;
+  width: 285px;
+  border: 1px lightgray solid;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .province_menu {
-  padding: 5px;
+  display: inline;
+  padding: 8px;
+  width: 400px;
+  border: 1px lightgray solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancel_save_btn {
+  margin-top:15px;
+  position: relative;
+}
+
+.cancel_btn {
+  position: absolute;
+  right:0;
+  width:90px;
+  padding:10px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: rgb(225, 225, 225);
+}
+
+.save_btn {
+  position: absolute;
+  right: 100px;
+  width: 90px;
+  padding: 10px;
+  border:none;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: rgb(225, 225, 225);
+}
+
+.save_btn:hover {
+  background-color: rgba(195, 195, 195, 0.6);
+}
+
+.cancel_btn:hover {
+  background-color: rgba(195, 195, 195, 0.6);
 }

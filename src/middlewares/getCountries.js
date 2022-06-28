@@ -11,6 +11,7 @@ let countries = [
       'Nova Scotia',
       'Northwest Terrirories',
       'Nunavut',
+      'Ontario',
       'Prince Edward Island',
       'Quebec',
       'Saskatchewan',
