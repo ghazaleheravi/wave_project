@@ -82,9 +82,8 @@ code {
   font-weight: 500;
 }
 
-.ChannelLabel {
-  padding: 5px;
-  margin-top: 10px;
+.Channel {
+  padding: 8px;
   margin-bottom: 5px;
   font-weight: 600;
   border: 1px lightgray solid;
@@ -100,7 +99,7 @@ code {
   display: inline;
   margin-right: 15px;
   padding: 8px;
-  width: 285px;
+  width: 200px;
   border: 1px lightgray solid;
   border-radius: 5px;
   cursor: pointer;
@@ -109,10 +108,17 @@ code {
 .province_menu {
   display: inline;
   padding: 8px;
-  width: 400px;
+  width: 300px;
   border: 1px lightgray solid;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.cityInput {
+  display: inline;
+  padding: 8px;
+  width: 150px;
+  margin-left: 15px;
 }
 
 .cancel_save_btn {

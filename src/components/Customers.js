@@ -15,7 +15,8 @@ function Customers(props) {
             type="button"
             className="edit_btn"
             onClick={() => setEditing(true)}
-            >edit
+          >
+            edit
           </button>
         </div>
       </ul>

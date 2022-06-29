@@ -6,7 +6,7 @@ function App() {
   const [data, setData] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
   const [error, setError] = useState(null);
-  console.log(data);
+  
   const url = 'https://rawgit.com/wvchallenges/se-exp-challenge-invoice/master/settings.json'; 
 
   useEffect(() => {

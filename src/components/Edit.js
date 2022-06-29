@@ -2,52 +2,57 @@ import React, { useState } from "react";
 import { getCountry } from '../middlewares/getCountries';
 
 function Edit(props) {
-  const data = getCountry();
+  const availableCountries = getCountry();
+
   const [isSelceted, setIsSelected] = useState(false);
-  const [country, setCountry] = useState('');
+  const [selectedCountry, setSelectedCountry] = useState('');
   
   const initalValues = {
     name: props.data.name,
-    email:props.data.email,
-    channel:props.data.channel,
-    address:props.data.address,
-    postal:props.data.postal,
-    country:props.data.country,
-    province:props.data.provinces,
+    email: props.data.email,
+    channel: props.data.channel,
+    address: props.data.address,
+    postal: props.data.postal,
+    country: props.data.country,
+    province: props.data.provinces,
+    city: props.data.city
   };
   const [values, setValues] = useState(initalValues);
   
-  const countries = data.map(item => item.country)
-
+  const countries = availableCountries.map(item => item.country);
+  
   let provinces = null;
-  data.forEach(item => {
-    if (country && item.country === country) {
-      provinces = item.provinces
+  availableCountries.forEach(item => {
+    if (selectedCountry && item.country === selectedCountry) {
+      provinces = item.provinces;
     }
-  }) 
+  }); 
   
   function handleChange(e) {
     setIsSelected(true);
-    setCountry(e.target.value);
     const {name, value} = e.target;
     setValues({
       ...values,
       [name]: value,
-    })
-  }
+    });
+  };
 
   function handleSubmit(e) {
     e.preventDefault();
+
     console.log({
-      name:values.name,
-      email:values.email,
-      channel:values.channel,
-      address:values.address,
-      postal:values.postal,
-      country:values.country,
-      province:values.province,
+      name: values.name,
+      email: values.email,
+      channel: values.channel,
+      address: values.address,
+      postal: values.postal,
+      country: values.country,
+      province: values.province,
+      city: values.city
     });
-    alert('New Information Saved!')
+
+    props.setEditing(false);
+    alert('New Information Saved!');
   }
 
   return (
@@ -74,12 +79,13 @@ function Edit(props) {
         onChange={handleChange}>
       </input>
 
+      <label className="channelLabel">Channel</label>
       <select 
         id={props.data.id} 
         value={values.channel}
         name="channel"
         onChange={handleChange} 
-        className="ChannelLabel" 
+        className="Channel" 
         required>
         <option value="">Channel</option>
         <option value={values.website} name="website">website</option>
@@ -114,11 +120,22 @@ function Edit(props) {
           id={props.data.id} 
           value={values.country}
           name="country"
-          onChange={handleChange} 
+          onChange={(e) => {
+            setSelectedCountry(e.target.value); 
+            setIsSelected(true);
+            const {name, value} = e.target;
+            setValues({
+              ...values,
+              [name]: value,
+            })
+          }}
           className="country_menu" 
           required>
           <option value="">Country</option>
-          {countries.map(item => (<option value={values.item} name={item} key={item}>{item}</option>))}
+          {countries.map(item => (
+            <option value={values.item} name={item} key={item}>{item}</option>
+            )
+          )}
         </select>
         
         <select 
@@ -128,26 +145,42 @@ function Edit(props) {
           onChange={handleChange}
           className="province_menu"
           disabled={!isSelceted}
+          required
           >
           <option value="">Province, State,...</option> 
           {provinces === null 
             ? <option value=''></option>
-            : provinces.map((item, idx) => (<option value={values.item} name={item} key={idx}>{item}</option>))
+            : provinces.map((item, idx) => (
+              <option value={values.item} name={item} key={idx}>{item}</option>
+            ))
           }
         </select>  
+
+        <input 
+          id={props.data.id} 
+          className="cityInput"
+          value={values.city} 
+          required
+          name="city"
+          placeholder="City"
+          onChange={handleChange}>
+        </input>
       </div>
+
       <div className="cancel_save_btn">   
         <button 
           type="button"
           className="cancel_btn"
           onClick={() => props.setEditing(false)}
-          >Cancel
+        >
+          Cancel
         </button>  
 
         <button
           type="submit"
           className="save_btn"
-          >Save
+        >
+          Save
         </button>
       </div> 
     </form>
